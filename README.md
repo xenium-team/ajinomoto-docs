@@ -120,7 +120,7 @@ admin VITE_DEV: "false"
 
 ไฟล์ k8s\docker\web.Dockerfile
 
-VITE_DEV="true"
+VITE_DEV="false"
 
 แล้วรัน 
 

@@ -20,6 +20,28 @@
 หรือใช้เซิร์ฟเวอร์เดียวกับ taily ได้
 สร้าง database name : ajinomoto
 
+
+
+### Server Requirements
+
+สำหรับการติดตั้งระบบ AJINOMOTO บน Production Server ต้องมีทรัพยากรขั้นต่ำดังนี้
+
+| รายการ | Minimum Requirements | Recommended |
+| --- | --- | --- |
+| CPU | 2 vCPU | 4 vCPU |
+| RAM | 4 GB | 8 GB |
+| Storage | 40 GB SSD | 100 GB SSD |
+| Operating System | Ubuntu 22.04 LTS | Ubuntu 24.04 LTS |
+| Docker | Docker Engine + Compose V2 | Latest supported version |
+| Database | PostgreSQL 17.12+ | PostgreSQL 17.12+ |
+
+### หมายเหตุ
+
+- พื้นที่ Storage ต้องเผื่อสำหรับ Database, Docker Images, Application Logs และ Database Backup
+- หากใช้งาน PostgreSQL Server ร่วมกับระบบอื่น ควรจัดสรร CPU, RAM และ Storage เพิ่มเติมตามปริมาณการใช้งาน
+- ข้อกำหนดนี้เป็นค่าเริ่มต้นสำหรับระบบขนาดเล็กถึงปานกลาง ควรประเมินทรัพยากรอีกครั้งตามจำนวนผู้ใช้งานและปริมาณข้อมูลจริง
+- สเปกดังกล่าวเป็นข้อเสนอเบื้องต้น ยังไม่ได้ผ่านการทดสอบ Load Test ของระบบ AJINOMOTO
+
 ### 3. ตั้งค่าไฟล์
 
 🔹เพิ่ม Domain
@@ -103,7 +125,7 @@ docker compose -f docker-compose.prod.yml exec api \
   --super
 
 docker compose -f docker-compose.prod.yml exec \
-  -e ADMIN_PASSWORD=[ADMIN_PASSWORD]' \
+  -e ADMIN_PASSWORD=[ADMIN_PASSWORD] \
   api node dist/scripts/create-admin.js \
   --username superadmin --reset
 ```

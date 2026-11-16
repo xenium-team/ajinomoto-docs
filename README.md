@@ -111,11 +111,17 @@ docker compose -f docker-compose.prod.yml exec \
 ส่ง URL_LIFF และ URL_ADMIN กลับมาให้ ทางทีมทดสอบ 
 เมื่อผ่านแล้วจะ แจ้งให้รัน อีกครั้ง
 🔹docker-compose.prod.yml
+
 เปลียน
+
 ไฟล์ k8s\docker\web.Dockerfile
+
 admin VITE_DEV: "false"
+
 ไฟล์ k8s\docker\web.Dockerfile
+
 VITE_DEV="true"
 
 แล้วรัน 
+
 docker compose -f docker-compose.prod.yml up -d --build --force-recreate
